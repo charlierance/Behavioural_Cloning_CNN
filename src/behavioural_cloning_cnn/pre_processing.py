@@ -67,6 +67,12 @@ class PreProcessData(PreProcessingUtils):
         self.right = process_right
 
     def plot_steering_distribution(self, title: str, show=False) -> plt.plot:
+        """
+        :param title: Set the title of the plot.
+        :param show: If true display the plot else save the plot to disk.
+        :return: A plot from the pandas dataframe of the distribution of the steering angles. NOTE: this expects a
+                 column with the heading 'steering_angle'.
+        """
         self.df["steering_angle"].hist(bins=40)
         plt.title(title)
         plt.xlabel("Steering Angle")
@@ -91,6 +97,9 @@ class PreProcessData(PreProcessingUtils):
         return columns
 
     def lower_kurtosis(self) -> pd.DataFrame:
+        """
+        :return: Looks in the 'steering_angle' column and reduces the occurrence of the 0 steering angle by 30%.
+        """
         self.plot_steering_distribution("before_kurtosis_lowering", show=False)
         self.df = self.df[self.df["steering_angle"] != 0].append(
             self.df[self.df["steering_angle"] == 0].sample(frac=0.7)

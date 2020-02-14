@@ -10,6 +10,12 @@ from keras.utils.vis_utils import plot_model
 
 class BehaviouralModel:
     def __init__(self, epochs: int, batch_size: int, keep_prob: float, csv_path: str):
+        """
+        :param epochs: Integer of the number of epochs to train on.
+        :param batch_size: Integer batch size per iteration.
+        :param keep_prob: Float percentage of the dropout e.g. 0.2 will cause a dropout of 20%.
+        :param csv_path: String path to the CSV containing locations of images and values.
+        """
         # Define HyperParams
         self.EPOCHS = epochs
         self.KEEP_PROB = keep_prob

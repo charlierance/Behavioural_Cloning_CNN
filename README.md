@@ -101,15 +101,12 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Unzip Training Data (If pigz is installed this is fastest else gzip or gunzip will do):
-```bash
-pigz -rd ./training_data
-```
+Follow the instructions in this repo [here](https://github.com/udacity/self-driving-car-sim) to install the simulator
+to collect your own training data.
 
 Export Package to PYTHONPATH (if needed):
 ```bash
-export
-PYTHONPATH=$PYTHONPATH:/path/to/repo/Behavioural-Cloning_CNN/src/
+export PYTHONPATH=$PYTHONPATH:/path/to/repo/Behavioural-Cloning_CNN/src/
 ```
 
 To train network:
